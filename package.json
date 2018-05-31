@@ -1,0 +1,21 @@
+{
+  "name": "hard-source-missing-image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "missing": "rm -rf node_modules/.cache/hard-source && webpack && webpack",
+    "no-extract": "rm -rf node_modules/.cache/hard-source && webpack --env.NO_EXTRACT=true && webpack --env.NO_EXTRACT=true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oscar Barrett",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "hard-source-webpack-plugin": "^0.7.4",
+    "mini-css-extract-plugin": "^0.4.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4"
+  }
+}
