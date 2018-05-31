@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const srcPath     = __dirname;
 const outputPath  = path.resolve(__dirname, 'dist');
@@ -19,6 +20,10 @@ module.exports = (env) => {
 
   return {
     mode: 'development',
+
+    devServer: {
+      contentBase: false
+    },
 
     entry: path.resolve(srcPath, 'index.js'),
 
@@ -41,6 +46,7 @@ module.exports = (env) => {
     },
 
     plugins: [
+      new CleanWebpackPlugin(outputPath),
       new HardSourceWebpackPlugin({
         environmentHash: {
           root: process.cwd(),
